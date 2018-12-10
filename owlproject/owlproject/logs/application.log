@@ -1,0 +1,12 @@
+2018-11-20 02:04:27,994 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Configuration not found for database: No configuration setting found for key 'db'
+2018-11-20 02:04:29,054 [WARN] from org.drools.compiler.kie.builder.impl.ClasspathKieProject in play-dev-mode-akka.actor.default-dispatcher-3 - Unable to find pom.properties in /D:/owlproject/owlproject/target/scala-2.12/classes
+2018-11-20 02:04:29,054 [WARN] from org.drools.compiler.kie.builder.impl.ClasspathKieProject in play-dev-mode-akka.actor.default-dispatcher-3 - As folder project tried to fall back to pom.xml, but could not find one
+2018-11-20 02:04:29,054 [WARN] from org.drools.compiler.kie.builder.impl.ClasspathKieProject in play-dev-mode-akka.actor.default-dispatcher-3 - Unable to load pom.properties from/D:/owlproject/owlproject/target/scala-2.12/classes
+2018-11-20 02:04:29,054 [WARN] from org.drools.compiler.kie.builder.impl.ClasspathKieProject in play-dev-mode-akka.actor.default-dispatcher-3 - Cannot find maven pom properties for this project. Using the container's default ReleaseId
+2018-11-20 02:04:29,735 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2018-11-20 02:04:29,776 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)

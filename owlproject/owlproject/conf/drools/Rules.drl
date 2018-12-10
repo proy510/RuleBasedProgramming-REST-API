@@ -1,0 +1,77 @@
+package drools;
+dialect  "mvel"
+
+rule "1" salience 7
+    when
+        txn : Transaction(txn.findStatusOfBank(txn.bank_id) == true)
+    then
+        System.out.println("I am here in Rule1");
+        txn.sendRuleNumberForFailure(drools.getRule().getName());
+        drools.halt();
+end
+
+rule "2" salience 6
+    when
+        txn : Transaction(txn.category.equalsIgnoreCase("Medical") == true)
+    then
+        System.out.println("I am here in Rule2");
+        System.out.println( txn.category );
+        drools.halt();
+end
+
+rule "3" salience 5
+    when
+        //System.out.println("I am in Rule3");
+        txn:Transaction(txn.category.equalsIgnoreCase("Weapons") == true)
+        and Transaction(txn.checkWeapon(txn.bank_id,txn.sender_id,txn.receiver_id) == false)
+    then
+            System.out.println("I am here in Rule3");
+            System.out.println(drools.getRule().getName());
+            txn.sendRuleNumberForFailure(drools.getRule().getName());
+            drools.halt();
+
+end
+
+rule "4" salience 4
+  when
+        txn : Transaction(txn.compareAmount(txn.amount) == true)
+         and Transaction(txn.checkAcceptabilityGreaterAmount(txn.sender_id,txn.receiver_id) == false)
+  then
+        System.out.println("I am here in Rule4");
+        System.out.println(drools.getRule().getName());
+        txn.sendRuleNumberForFailure(drools.getRule().getName());
+        drools.halt();
+end
+
+rule "5" salience 3
+when
+        txn: Transaction(txn.checkAverageAmount(txn.bank_id) == false)
+then
+        System.out.println("I am here in Rule5");
+        System.out.println(drools.getRule().getName());
+        txn.sendRuleNumberForFailure(drools.getRule().getName());
+        drools.halt();
+ end
+
+ rule "6" salience 2
+    when
+        txn: Transaction(txn.checkPercentage(txn.bank_id,txn.sender_id,txn.receiver_id) == false)
+    then
+         System.out.println("I am here in Rule6");
+         System.out.println(drools.getRule().getName());
+         txn.sendRuleNumberForFailure(drools.getRule().getName());
+         drools.halt();
+ end
+
+
+ rule "7" salience 1
+    when
+        txn: Transaction(txn.checkConsecutiveRejections(txn.bank_id) == true)
+    then
+        System.out.println("I am here in Rule7");
+        System.out.println(drools.getRule().getName());
+        txn.sendRuleNumberForFailure(drools.getRule().getName());
+        drools.halt();
+ end
+
+

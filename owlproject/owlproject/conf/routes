@@ -1,0 +1,64 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+
+
+#This should reload the ontology
+#Need to change this later.
+POST    /reset                          controllers.HomeController.reset
+
+# Create a New Bank
+
+POST /addbank/:nationality/:bankID          controllers.HomeController.addBank(nationality:String,bankID:String)
+
+# GeT Rejection Log
+
+GET /rejectionlog                           controllers.HomeController.getRejectionLog()
+
+# GeT Acceptance Log
+
+GET /acceptancelog                           controllers.HomeController.getAcceptanceLog()
+
+
+# IS BLACKLISTED
+
+GET /isblacklisted/:bankID                 controllers.HomeController.isBlacklisted(bankID:String)
+
+# COUNT REJECTIONS
+
+GET /bankrejections/:bankID                 controllers.HomeController.getRejCount(bankID:String)
+
+
+#Create a Merchant Individual
+POST  /addmerchant/:uniqueID           controllers.HomeController.addMerchant(uniqueID:String)
+
+#Create a Consumer Individual
+POST  /addconsumer/:uniqueID           controllers.HomeController.addConsumer(uniqueID:String)
+
+#Create a Transaction Individual
+
+POST  /transactionrequest/:senderID/:receiverID/:bankID/:category/:amount/:transactionRequestID   controllers.HomeController.requestToAddTransaction(senderID:String,receiverID:String,bankID:String,category:String,amount:String,transactionRequestID:String)
+
+#Detects whether a transaction is Commercial
+GET        /iscommercial/:transactionID      controllers.HomeController.isCommercial(transactionID:String)
+
+#Detects whether a transaction is Personal
+GET        /ispersonal/:transactionID      controllers.HomeController.isPersonal(transactionID:String)
+
+#Detects whether a transaction is Purchase
+GET        /ispurchase/:transactionID      controllers.HomeController.isPurchase(transactionID:String)
+
+#Detects whether a transaction is Purchase
+GET        /isrefund/:transactionID      controllers.HomeController.isRefund(transactionID:String)
+
+#Detects whether a Merchant is Trusted
+GET        /istrusted/:merchantID      controllers.HomeController.isTrusted(merchantID:String)
+

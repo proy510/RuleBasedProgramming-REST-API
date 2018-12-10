@@ -1,0 +1,2 @@
+[0m[[0m[31merror[0m] [0m[0mD:\owlproject\owlproject\app\controllers\HomeController.java:676:1: unreported exception java.text.ParseException; must be caught or declared to be thrown[0m
+[0m[[0m[31merror[0m] [0m[0m        newb2.getRejectionLog();[0m
